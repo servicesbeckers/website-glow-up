@@ -8,23 +8,14 @@ import { fetchProjectBySlug } from "@/lib/projects";
 import { useState } from "react";
 
 export const Route = createFileRoute("/projecten/$slug")({
-  head: ({ loaderData }) => {
-    const title = loaderData?.project?.title ?? "Project";
-    return {
-      meta: [
-        { title: `${title} — Werkhuizen Beckers` },
-        {
-          name: "description",
-          content: loaderData?.project?.summary ?? "",
-        },
-        { property: "og:title", content: `${title} — Werkhuizen Beckers` },
-        {
-          property: "og:description",
-          content: loaderData?.project?.summary ?? "",
-        },
-      ],
-    };
-  },
+  head: () => ({
+    meta: [
+      { title: "Project — Werkhuizen Beckers" },
+      { name: "description", content: "Projectdetail bij Werkhuizen Beckers." },
+      { property: "og:title", content: "Project — Werkhuizen Beckers" },
+      { property: "og:description", content: "Projectdetail bij Werkhuizen Beckers." },
+    ],
+  }),
   loader: async ({ params }) => {
     const result = await fetchProjectBySlug({ data: { slug: params.slug } });
     if (!result.project) {
