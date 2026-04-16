@@ -75,7 +75,7 @@ function ProjectenPage() {
 
           {projects.length > 0 ? (
             <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {projects.map((project) => (
+              {projects.map((project: { slug: string; title: string; material: string; category: string; summary: string; cover: string; application: string; body: string }) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
             </div>

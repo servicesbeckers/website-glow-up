@@ -100,7 +100,7 @@ function ProjectDetailPage() {
             <div className="mt-12">
               <h2 className="mb-6 text-xl font-semibold">Galerij</h2>
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {images.map((img, i) => (
+                {images.map((img: string, i: number) => (
                   <button
                     key={img}
                     onClick={() => setSelectedImage(img)}
