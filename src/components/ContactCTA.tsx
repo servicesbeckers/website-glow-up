@@ -3,20 +3,9 @@ import { Phone, Mail } from "lucide-react";
 
 export function ContactCTA() {
   return (
-    <section id="contact" className="relative py-24 sm:py-32">
-      {/* Background image */}
-      <div className="absolute inset-0">
-        <img
-          src="https://werkhuizenbeckers.be/images/poort1.jpg"
-          alt="Metaalwerk Werkhuizen Beckers"
-          className="size-full object-cover opacity-15"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-background via-background/90 to-background" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-        <div className="rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-transparent p-10 backdrop-blur-sm sm:p-16">
+    <section id="contact" className="py-24 sm:py-32">
+      <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+        <div className="rounded-2xl border border-primary/20 bg-gradient-to-br from-primary/5 to-transparent p-10 sm:p-16">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">
             Contact
           </p>
@@ -25,7 +14,7 @@ export function ContactCTA() {
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-muted-foreground">
             Neem vrijblijvend contact met ons op voor een bespreking of offerte.
-            Wij helpen u graag verder met uw metaalwerk in Hasselt en omgeving.
+            Wij helpen u graag verder.
           </p>
           <div className="mt-10 flex flex-col items-center gap-4 sm:flex-row sm:justify-center">
             <Button asChild size="lg" className="gap-2 text-base">
