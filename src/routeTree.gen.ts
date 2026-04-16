@@ -9,38 +9,75 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ContactRouteImport } from './routes/contact'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ProjectenIndexRouteImport } from './routes/projecten.index'
+import { Route as ProjectenSlugRouteImport } from './routes/projecten.$slug'
 
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProjectenIndexRoute = ProjectenIndexRouteImport.update({
+  id: '/projecten/',
+  path: '/projecten/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProjectenSlugRoute = ProjectenSlugRouteImport.update({
+  id: '/projecten/$slug',
+  path: '/projecten/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projecten/$slug': typeof ProjectenSlugRoute
+  '/projecten/': typeof ProjectenIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projecten/$slug': typeof ProjectenSlugRoute
+  '/projecten': typeof ProjectenIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/contact': typeof ContactRoute
+  '/projecten/$slug': typeof ProjectenSlugRoute
+  '/projecten/': typeof ProjectenIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/contact' | '/projecten/$slug' | '/projecten/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/contact' | '/projecten/$slug' | '/projecten'
+  id: '__root__' | '/' | '/contact' | '/projecten/$slug' | '/projecten/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  ContactRoute: typeof ContactRoute
+  ProjectenSlugRoute: typeof ProjectenSlugRoute
+  ProjectenIndexRoute: typeof ProjectenIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +85,28 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/projecten/': {
+      id: '/projecten/'
+      path: '/projecten'
+      fullPath: '/projecten/'
+      preLoaderRoute: typeof ProjectenIndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/projecten/$slug': {
+      id: '/projecten/$slug'
+      path: '/projecten/$slug'
+      fullPath: '/projecten/$slug'
+      preLoaderRoute: typeof ProjectenSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  ContactRoute: ContactRoute,
+  ProjectenSlugRoute: ProjectenSlugRoute,
+  ProjectenIndexRoute: ProjectenIndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
