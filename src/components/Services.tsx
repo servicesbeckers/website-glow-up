@@ -1,60 +1,74 @@
-import { Wrench, LayoutGrid, Sparkles, Wind } from "lucide-react";
+import { Wrench, LayoutGrid, Sparkles, Wind, Cog, Lightbulb } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 
 const services = [
   {
     icon: Wrench,
-    title: "Herstellingen",
+    title: "Herstellingen ter plaatse",
     description:
-      "Wij herstellen alle soorten metalen constructies, machines en onderdelen. Snel, vakkundig en betaalbaar.",
+      "Snelle en betrouwbare herstellingen bij u ter plaatse. Elk probleem wordt efficiënt aangepakt, zodat u snel weer verder kunt. Minimale stilstand, maximale service.",
   },
   {
     icon: LayoutGrid,
-    title: "Staalconstructies",
+    title: "Staal maatwerk",
     description:
-      "Van draagstructuren tot trappen en balustrades — wij realiseren staalconstructies op maat voor elke toepassing.",
+      "Robuust en veelzijdig. Staal biedt maximale stevigheid en draagkracht, ideaal voor constructies en toepassingen waar kracht en stabiliteit essentieel zijn.",
   },
   {
     icon: Sparkles,
-    title: "RVS werken",
+    title: "RVS maatwerk",
     description:
-      "Inox/RVS werken voor keukens, industrie en architectuur. Duurzaam, hygiënisch en stijlvol afgewerkt.",
+      "Duurzaam, hygiënisch en onderhoudsvriendelijk. Inox is bestand tegen roest en slijtage, perfect voor maatwerk in omgevingen waar kwaliteit, netheid en lange levensduur centraal staan.",
   },
   {
     icon: Wind,
-    title: "Aluminium",
+    title: "Aluminium maatwerk",
     description:
-      "Lichtgewicht en corrosiebestendig — aluminium constructies en onderdelen voor diverse toepassingen.",
+      "Licht en toch sterk. Aluminium is corrosiebestendig en ideaal voor toepassingen waar duurzaamheid en een strakke afwerking belangrijk zijn.",
+  },
+  {
+    icon: Cog,
+    title: "Enkele stuks",
+    description:
+      "Of het nu om één onderdeel gaat of een prototype: wij produceren ook kleine series en enkelstuks met dezelfde precisie en afwerking.",
+  },
+  {
+    icon: Lightbulb,
+    title: "Technisch meedenken",
+    description:
+      "Wij denken mee over materiaal, uitvoering en haalbaarheid. Zo krijgt u niet alleen een product, maar ook een doordachte oplossing.",
   },
 ];
 
 export function Services() {
   return (
-    <section id="diensten" className="py-24 sm:py-32">
+    <section id="diensten" className="py-24 sm:py-32 bg-secondary/30">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <p className="text-sm font-semibold uppercase tracking-widest text-primary">
-            Onze diensten
+            Diensten
           </p>
           <h2 className="mt-3 text-3xl font-bold tracking-tight sm:text-4xl">
-            Wat wij voor u kunnen doen
+            Maatwerk voor uiteenlopende toepassingen
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-muted-foreground">
-            Met jarenlange ervaring leveren wij kwaliteitswerk in staal, RVS en aluminium.
+            Van functionele constructies tot verfijnde afwerking: wij leveren
+            metaalwerk op maat met aandacht voor kwaliteit, precisie en
+            duurzaamheid.
           </p>
         </div>
 
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {services.map((service) => (
             <Card
               key={service.title}
-              className="group border-border/50 bg-card/50 backdrop-blur transition-all duration-300 hover:border-primary/40 hover:-translate-y-1 hover:shadow-[0_8px_30px_oklch(0.75_0.16_65/0.1)]"
+              className="group border-border/50 bg-card/60 backdrop-blur-sm transition-all duration-300 hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5"
             >
-              <CardContent className="flex flex-col items-start gap-4 p-6">
-                <div className="flex size-12 items-center justify-center rounded-lg bg-primary/10 text-primary transition-colors group-hover:bg-primary/20">
+              <CardContent className="p-6">
+                <div className="mb-4 inline-flex rounded-lg bg-primary/10 p-3 text-primary transition-colors group-hover:bg-primary/20">
                   <service.icon size={24} />
                 </div>
-                <h3 className="text-lg font-semibold">{service.title}</h3>
+                <h3 className="mb-2 text-lg font-semibold">{service.title}</h3>
                 <p className="text-sm leading-relaxed text-muted-foreground">
                   {service.description}
                 </p>
