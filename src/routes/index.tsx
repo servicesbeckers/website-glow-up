@@ -10,18 +10,25 @@ import { Footer } from "@/components/Footer";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Werkhuizen Beckers — Vakmanschap in staal, RVS en aluminium" },
+      { title: "Werkhuizen Beckers Hasselt — Metaalbewerking, Staal, RVS & Aluminium op Maat" },
       {
         name: "description",
         content:
-          "Al meer dan 30 jaar uw specialist voor herstellingen, constructiewerk en maatwerk in staal, RVS en aluminium in Hasselt.",
+          "Werkhuizen Beckers in Hasselt: al meer dan 30 jaar specialist in metaalbewerking, staalconstructies, RVS werken, aluminium, herstellingen en maatwerk in metaal. Vakmanschap in Limburg.",
       },
-      { property: "og:title", content: "Werkhuizen Beckers — Vakmanschap in staal, RVS en aluminium" },
+      {
+        name: "keywords",
+        content:
+          "metaalbewerking Hasselt, metaalconstructies Limburg, staalconstructies op maat, RVS werken Hasselt, aluminium constructies, maatwerk metaal Limburg, herstellingen metaal, laswerken Hasselt, balustrades op maat, trappen staal, metalen trappen, stalen deuren, poorten op maat, bordessen op maat, metaalwerken Hasselt, inox op maat, plaatbewerking Limburg, industrieel metaalwerk, constructiewerk Hasselt, werkhuizen Beckers",
+      },
+      { property: "og:title", content: "Werkhuizen Beckers Hasselt — Metaalbewerking & Maatwerk in Staal, RVS en Aluminium" },
       {
         property: "og:description",
         content:
-          "Al meer dan 30 jaar uw specialist voor herstellingen, constructiewerk en maatwerk in staal, RVS en aluminium.",
+          "Al meer dan 30 jaar uw specialist voor metaalbewerking, staalconstructies, herstellingen en maatwerk in staal, RVS en aluminium in Hasselt en Limburg.",
       },
+      { property: "og:type", content: "website" },
+      { property: "og:locale", content: "nl_BE" },
     ],
   }),
   component: Index,
